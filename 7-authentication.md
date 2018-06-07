@@ -10,15 +10,15 @@ Le client HTTP fournit un username et mot de passe dans la requête.
 
 Demander au browser une authentification:
 
-```
-
+```http
+WWW-Authenticate: Basic realm="User Visible Realm"
 ```
 
 ---
 
 Format et convention du header d'authentication:
 
-```
+```http
 Authorization: Basic <Base64(username + ':' + password)>
 ```
 
@@ -42,13 +42,13 @@ Data définies par le serveur ou le code JS, stoquées dans le browser de l'util
 
 Le serveur définit un cookie en envoyant le header:
 
-```
+```http
 Set-Cookie: <cookie-name>=<cookie-value>
 ```
 
 Et obtient les cookies via le header:
 
-```
+```http
 Cookie: <cookie-name>=<cookie-value>
 ```
 
@@ -58,7 +58,7 @@ Par defaut, les cookies expirent à la fin de la session (fermeture du browser).
 
 Pour des cookies permanent et securisés (non-accessible coté Javascript):
 
-```
+```http
 Set-Cookie: id=a3fWa;
   Expires=Wed, 21 Oct 2015 07:28:00 GMT;
   Secure; HttpOnly
@@ -181,5 +181,7 @@ IF (EXPECTED_SIGNATURE != SIGNATURE) {
 ---
 
 ## 👨‍💻 Exercice
+
+https://classroom.github.com/a/k_kd_bxI
 
 Ajouter un systéme de session par cookies signés.
